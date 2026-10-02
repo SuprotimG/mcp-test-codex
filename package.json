@@ -1,0 +1,17 @@
+{
+  "name": "software-factory-sandcastle-runtime",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sandcastle:role": "tsx .sandcastle/main.ts",
+    "sandcastle:planner": "tsx .sandcastle/main.ts planner",
+    "sandcastle:developer": "tsx .sandcastle/main.ts developer",
+    "sandcastle:reviewer": "tsx .sandcastle/main.ts reviewer",
+    "sandcastle:merger": "tsx .sandcastle/main.ts merger"
+  },
+  "devDependencies": {
+    "@ai-hero/sandcastle": "^0.12.0",
+    "tsx": "^4.20.6"
+  }
+}
+

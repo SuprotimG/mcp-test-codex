@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous Software Factory</title>
+  <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <h1>Autonomous Software Factory</h1>
+      <p>AFK orchestration dashboard for issues, agents, PRs, and merges</p>
+    </header>
+    <section class="grid">
+      <article class="card">
+        <h2>Active agents</h2>
+        <ul>
+          {% for agent in snapshot.agents %}
+          <li>{{ agent.agent_id }} · {{ agent.role }} · {{ agent.status }}{% if agent.issue_number %} · issue #{{ agent.issue_number }}{% endif %}</li>
+          {% else %}
+          <li>No active agents yet</li>
+          {% endfor %}
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Assigned issues</h2>
+        <ul>
+          {% for issue in snapshot.issues %}
+          <li>#{{ issue.number }} · {{ issue.title }} · {{ issue.status }}{% if issue.branch_name %} · {{ issue.branch_name }}{% endif %}</li>
+          {% else %}
+          <li>No synced issues yet</li>
+          {% endfor %}
+        </ul>
+      </article>
+      <article class="card">
+        <h2>PR status</h2>
+        <ul>
+          {% for pr in snapshot.pull_requests %}
+          <li>PR #{{ pr.number }} · {{ pr.status }}{% if pr.issue_number %} · issue #{{ pr.issue_number }}{% endif %}</li>
+          {% else %}
+          <li>No pull requests yet</li>
+          {% endfor %}
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Merge status</h2>
+        <ul>
+          {% for merge in snapshot.merges %}
+          <li>PR #{{ merge.pull_request_number }} · {{ merge.status }}</li>
+          {% else %}
+          <li>No merge activity yet</li>
+          {% endfor %}
+        </ul>
+      </article>
+      <article class="card wide">
+        <h2>Recent events</h2>
+        <ul class="events">
+          {% for event in snapshot.events %}
+          <li><strong>{{ event.category }}</strong> · {{ event.message }}</li>
+          {% else %}
+          <li>No events yet</li>
+          {% endfor %}
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
+
