@@ -90,9 +90,9 @@ npm install
 
 ## Empty repository bootstrap
 
-Your GitHub repo currently being empty is important: PR automation needs a real default branch and at least one commit before the factory can create feature branches and open pull requests. GitHub's own workflow docs describe creating the first commit when starting from an empty repository, and pull requests operate by comparing branches against a base branch. citeturn0search14turn0search15
+PR automation needs a real default branch and at least one commit before the factory can create feature branches and open pull requests.
 
-This repo now includes a safe bootstrap command that creates the first local commit without pushing anything automatically:
+This repo includes a safe bootstrap command that creates the first local commit without pushing anything automatically:
 
 ```powershell
 python -m software_factory.cli bootstrap-repository
@@ -163,3 +163,4 @@ See `docs/customer-demo.md` for the customer-facing demo story.
 - `docs/implementation-plan.md`
 - `docs/roadmap.md`
 - `docs/customer-demo.md`
+
